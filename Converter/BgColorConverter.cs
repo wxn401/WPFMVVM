@@ -11,6 +11,13 @@ namespace WpfCore.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if(value != null)
+            {
+                string v = value.ToString();
+                if(string.IsNullOrEmpty(v))
+                    return "Yellow";
+                return v;
+            }
             return "Yellow";
         }
 

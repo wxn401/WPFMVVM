@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 using WpfCore.Helper;
 
@@ -83,8 +84,29 @@ namespace WpfCore.ViewModel
         }
 
         //public ICommand ChangeColorCMD
-        public ICommand ChangeColorCMD = new RelayCommand(() => {
-            BgColor = "Green";
-        });
+        public ICommand ChangeColorCMD
+        {
+            get
+            {
+                return new RelayCommand(() => {
+                    BgColor = "Green";
+                    //MessageBox.Show("123456");
+                });
+            }
+        }
+
+        public ICommand ShowCommand
+        {
+            get
+            {
+                return new RelayCommand<string>(
+                    (user) =>
+                    {
+                        MessageBox.Show(user.ToString());
+                    }, (user) => {
+                        return true;
+                    });
+            }
+        }
     }
 }

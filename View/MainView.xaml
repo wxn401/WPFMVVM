@@ -12,8 +12,11 @@
     </Window.Resources>
     <Grid>
         <StackPanel Background="{Binding BgColor,Converter={StaticResource bgcolor}}">
+            <Button Content="Show"
+                    Command="{Binding ShowCommand}"
+                    CommandParameter="{Binding TTest}"></Button>
             <TextBox Text="{Binding TTest}" Width="150" Height="32" />
-            <TextBlock Text="{Binding TTest}" Width="150" Height="32" />
+            <TextBlock Text="{Binding TTest}" Background="{Binding BgColor}" Width="150" Height="32" />
             <Button  Command="{Binding ChangeColorCMD}">
                 <Button.Content>
                     <TextBlock Text="更换背景色"></TextBlock>
