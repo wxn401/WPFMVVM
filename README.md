@@ -1,3 +1,5 @@
 # WPFMVVM
+this project is only for learning
+
 WPF + MVVMCROSS + Autofac
-源代码仅学习使用
+rabbitmq ttl

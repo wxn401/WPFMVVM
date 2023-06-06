@@ -15,6 +15,9 @@
             <Button Content="Show"
                     Command="{Binding ShowCommand}"
                     CommandParameter="{Binding TTest}"></Button>
+            <Button Content="rabbitMQ dead letter"
+                    Command="{Binding RMQCommand}"
+                    CommandParameter="{Binding TTest}"></Button>
             <TextBox Text="{Binding TTest}" Width="150" Height="32" />
             <TextBlock Text="{Binding TTest}" Background="{Binding BgColor}" Width="150" Height="32" />
             <Button  Command="{Binding ChangeColorCMD}">

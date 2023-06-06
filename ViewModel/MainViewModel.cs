@@ -5,9 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WpfCore.Helper;
+using WpfCore.RabbitMQ;
 
 namespace WpfCore.ViewModel
 {
@@ -103,6 +105,28 @@ namespace WpfCore.ViewModel
                     (user) =>
                     {
                         MessageBox.Show(user.ToString());
+                    }, (user) => {
+                        return true;
+                    });
+            }
+        }
+
+        public ICommand RMQCommand
+        {
+            get
+            {
+                return new RelayCommand<string>(
+                    (user) =>
+                    {
+                        MQClient mq = new MQClient();
+                        
+                        Task.Run(() => {
+                            mq.Send();
+                        });
+                        Task.Run(() =>{
+                        mq.Comsumer();
+                    });
+                        
                     }, (user) => {
                         return true;
                     });
